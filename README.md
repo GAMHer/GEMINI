@@ -102,10 +102,10 @@ Description
 
 * [MICMAC](http://micmac.ensg.eu/index.php/Accueil) - MicMac is a free open-source (Cecill-B licence) photogrammetric suite that can be used in a variety of 3D reconstruction scenarios. In aims mainly at professionnal or academic users but constant efforts are made to make it more accessible to the general public.
 
-* [UGUI](https://github.com/UniversalGUI/UGUI) - Universal Graphical User Interface - UGUI gives a face to command line applications using HTML, CSS, & JavaScript.
+* [UGUI](https://github.com/UniversalGUI) - Universal Graphical User Interface - UGUI gives a face to command line applications using HTML, CSS, & JavaScript.
 
-* [Node.JS](https://github.com/nodejs/node) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+* [Node.JS](https://github.com/nodejs) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
-* [NPM](https://github.com/npm/npm) - A package manager for javascript.
+* [NPM](https://github.com/npm) - A package manager for javascript.
 
 * [NW.js](https://github.com/nwjs) - NW.js is an app runtime based on Chromium and node.js. You can write native apps in HTML and JavaScript with NW.js. It also lets you call Node.js modules directly from the DOM and enables a new way of writing native applications with all Web technologies.

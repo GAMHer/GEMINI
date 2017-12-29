@@ -27,8 +27,8 @@
     "main": "index.htm",
     "window": {
         "title": "GEMINI",
-        "icon": "_img/icon32.png",
-        "toolbar": true,
+        "icon": "_img/logo.png",
+        "toolbar": false,
         "resizable": true,
         "visible": true,
         "transparent": false,

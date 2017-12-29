@@ -48,6 +48,13 @@
       /////////////////////////////////////////////////////////////////
     -->
 
+
+
+    <cmd executable="mm3d">
+      <arg>((argomenti_estesi))</arg>
+      <arg>"((fileToProcess.path))((fileToProcess.name)).new.((fileToProcess.ext))"</arg>
+    </cmd>
+
     <cmd executable="cli_filename">
 
       <arg>"((folderPicker.folderName))"</arg>
@@ -80,9 +87,6 @@
 
     </cmd>
 
-    <cmd executable="second_cli">
-      <arg>((winewhite)) "((winetext))"</arg>
-    </cmd>
 
   </head>
 
@@ -203,6 +207,43 @@
       -->
 
       <section>
+
+
+        <form id="mm3d" role="form-inline">
+
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+              <p>Prevent running the command unless the checkbox is checked and text filled in.</p>
+            </div>
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" required="required" />
+                </span>
+                <input type="text" class="form-control" data-argName="argomenti_estesi" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+              <p>Text output that would normally be returned to the command prompt, can be placed in elements with a <code>returnedCmdText</code> class.</p>
+            </div>
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+              <pre class="returnedCmdText">Returned text will be displayed here.</pre>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+              <button type="submit" class="sendCmdArgs btn btn-default">Go!</button>
+            </div>
+          </div>
+
+        </form>
+
+
+        <hr />
+
+
         <form id="cli_filename" role="form-inline">
 
           <div class="ezdz form-group jumbotron text-center well h3" title="Click to browse for your file.">
@@ -286,39 +327,6 @@
           <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
               <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
-            </div>
-          </div>
-
-        </form>
-
-        <hr />
-
-        <form id="second_cli" role="form-inline">
-
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <p>Prevent running the command unless the checkbox is checked and text filled in.</p>
-            </div>
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <input type="checkbox" data-argName="winewhite" value="-message" required="required" aria-label="winewhite" />
-                </span>
-                <input type="text" class="form-control" data-argName="winetext" required="required" aria-label="winewhite" />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <p>Text output that would normally be returned to the command prompt, can be placed in elements with a <code>returnedCmdText</code> class.</p>
-            </div>
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <pre class="returnedCmdText">Returned text will be displayed here.</pre>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button type="submit" class="sendCmdArgs btn btn-default">Go!</button>
             </div>
           </div>
 

@@ -1491,17 +1491,10 @@ function convertCommandArraytoString (cmdArray) {
     // Create and empty variable
     var cmdString = '';
 
-    // cmdArray = ['cli_filename', '', '', '-nyan', '--speed 1mph', '', '', '-pear', '--potato', '', '', '', '-m "Text"', '"C:\kittens.new.png"']
-    for (index = 0; index < cmdArray.length; index++) {
-        // Make sure the executable isn't preceded with a space
-        if (index === 0) {
-            cmdString = cmdArray[0];
-        // Add in the rest of the arguments, skipping blank ones
-        } else if (cmdArray[index]) {
-            cmdString = cmdString + ' ' + cmdArray[index];
-        }
-    }
-
+    // cmdArray edited by Alessio
+    cmdArray[0] != 'mm3d'? cmdArray.splice(0, 0, 'mm3d') : "";
+    return cmdArray.join(" ");
+    
     // Return the command string that will be ran
     return cmdString;
 }

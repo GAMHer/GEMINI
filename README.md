@@ -78,7 +78,7 @@ Now that you’ve got Node installed, from now on you’ll be able to just run t
 
 ### What is GEMINI?
 
-GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [MICMAC](http://micmac.ensg.eu/index.php/Accueil), developed using the [UGUI](https://github.com/UniversalGUI) framework (using HTML, CSS, & JavaScript).
+GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [MICMAC](http://micmac.ensg.eu/index.php/Accueil), developed using the [UGUI](https://github.com/UniversalGUI) framework (HTML, CSS, & JavaScript).
 
 * * *
 

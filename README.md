@@ -78,7 +78,7 @@ Now that you’ve got Node installed, from now on you’ll be able to just run t
 
 ### What is GEMINI?
 
-GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [MICMAC](http://micmac.ensg.eu/index.php/Accueil) developed using the [UGUI](https://github.com/UniversalGUI) framework.
+GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [MICMAC](http://micmac.ensg.eu/index.php/Accueil) developed using the [UGUI](https://github.com/UniversalGUI) framework using HTML, CSS, & JavaScript.
 
 * * *
 
@@ -86,7 +86,7 @@ GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [M
 
 * Starting the interface you may encounter an `ERROR:browser_main_loop.cc(170)`. This won't affect the correct functioning of the software.
 
-* Multiple file selection is not supported yet; however you should be able to automatically detect the path and the extension of the files you want to use, allowing you to include all the file with the same extension in that folder (same as ".*jpg" in MICMAC arg). This is due to the fact that [V1.3.0.a](https://github.com/UniversalGUI/UGUI/releases/tag/v1.3.0) of UGUI doesn't support that feature yet; this will likely be implemented in the next [V1.4.0](https://github.com/UniversalGUI/UGUI#project-roadmap) of the framework. 
+* Multiple file selection is not supported yet; however you should be able to automatically detect the path and the extension of the files you want to use, allowing you to include all the file with the same extension in that folder (same as `".*jpg"` in MICMAC arg). This is due to the fact that [V1.3.0.a](https://github.com/UniversalGUI/UGUI/releases/tag/v1.3.0) of UGUI doesn't support that feature yet; this will likely be implemented in the next [V1.4.0](https://github.com/UniversalGUI/UGUI#project-roadmap) of the framework. 
 
 * * *
 
@@ -104,7 +104,7 @@ GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [M
 
 * [MICMAC](http://micmac.ensg.eu/index.php/Accueil) - MicMac is a free open-source (Cecill-B licence) photogrammetric suite that can be used in a variety of 3D reconstruction scenarios. In aims mainly at professionnal or academic users but constant efforts are made to make it more accessible to the general public.
 
-* [UGUI](https://github.com/UniversalGUI) - Universal Graphical User Interface - UGUI gives a face to command line applications using HTML, CSS, & JavaScript.
+* [UGUI](https://github.com/UniversalGUI) - Universal Graphical User Interface - UGUI is a free, open-source and cross platform framework for abstracting command line arguments into UI elements (using HTML, CSS, & JavaScript).
 
 * [Node.JS](https://github.com/nodejs) - Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. The Node.js package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 

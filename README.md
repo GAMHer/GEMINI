@@ -78,13 +78,15 @@ Now that you’ve got Node installed, from now on you’ll be able to just run t
 
 ### What is GEMINI?
 
-Description
+GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [MICMAC](http://micmac.ensg.eu/index.php/Accueil) developed using [UGUI](https://github.com/UniversalGUI)
 
 * * *
 
 ### Known Issues
 
 * Starting the interface you may encounter an `ERROR:browser_main_loop.cc(170)`. This won't affect the correct functioning of the software.
+
+* Multiple file selection is not supported yet; however you should be able to automatically detect the path and the extension of the files you want to use, allowing you to include all the file with the same extension in that folder (same as ".*jpg" in MICMAC arg). This is due to the fact that V1.3.0.a of [UGUI](https://github.com/UniversalGUI) doesn't support that feature yet; this will likely be implemented in the next [V1.4.0](https://github.com/UniversalGUI/UGUI#project-roadmap) of the framework. 
 
 * * *
 

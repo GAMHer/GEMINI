@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
     <!-- Change this next line from cerulean to whatever swatch you pick. -->
-    <link rel="stylesheet" href="_style/ven.bootswatch/cerulean.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ven.bootswatch/spacelab.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -51,41 +51,9 @@
 
 
     <cmd executable="mm3d">
-      <arg>((argomenti_estesi))</arg>
-      <arg>"((fileToProcess.path))((fileToProcess.name)).new.((fileToProcess.ext))"</arg>
+      <arg>((commandline))</arg>
     </cmd>
 
-    <cmd executable="cli_filename">
-
-      <arg>"((folderPicker.folderName))"</arg>
-
-      <arg>((catSoundsMeow))</arg>
-      <arg>((catSoundsPurr))</arg>
-      <arg>((catSoundsNyan))</arg>
-
-      <arg>--speed ((speedVsQuality))mph</arg>
-
-      <arg>The best ((fruitPlum)) around!</arg>
-      <arg>((fruitKiwi))</arg>
-      <arg>((fruitPear))</arg>
-
-      <arg>((vegPotato))</arg>
-      <arg>((vegCarrot))</arg>
-      <arg>((vegCelery))</arg>
-      <arg>((vegGinger))</arg>
-
-      <arg>--dogsound=((dogSounds))</arg>
-
-      <def name="quality">((min)),((max))</def>
-      <arg>((quality.min))-((quality.max))</arg>
-
-      <arg>-m "((userMessage))"</arg>
-
-      <arg>((colorful.rgb))</arg>
-
-      <arg>"((fileToProcess.path))((fileToProcess.name)).new.((fileToProcess.ext))"</arg>
-
-    </cmd>
 
 
   </head>
@@ -209,128 +177,38 @@
       <section>
 
 
-        <form id="mm3d" role="form-inline">
-
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <p>Prevent running the command unless the checkbox is checked and text filled in.</p>
-            </div>
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <div class="input-group">
-                <span class="input-group-addon">
-                  <input type="checkbox" required="required" />
-                </span>
-                <input type="text" class="form-control" data-argName="argomenti_estesi" />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <p>Text output that would normally be returned to the command prompt, can be placed in elements with a <code>returnedCmdText</code> class.</p>
-            </div>
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <pre class="returnedCmdText">Returned text will be displayed here.</pre>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button type="submit" class="sendCmdArgs btn btn-default">Go!</button>
-            </div>
-          </div>
-
-        </form>
-
 
         <hr />
 
-
-        <form id="cli_filename" role="form-inline">
-
-          <div class="ezdz form-group jumbotron text-center well h3" title="Click to browse for your file.">
-            <span class="imageContainer"></span>
-            <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your file here.</label>
-            <input data-argName="fileToProcess" required="required" type="file" multiple />
-          </div>
+        <form id="mm3d" role="form-inline">
 
           <div class="row">
-            <div class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
-              <label><input type="radio" name="radioDials" data-argName="catSoundsMeow" value="-meow" /> Meow</label><br />
-              <label><input type="radio" name="radioDials" data-argName="catSoundsPurr" value="-purr" /> Purr</label><br />
-              <label><input type="radio" name="radioDials" data-argName="catSoundsNyan" value="-nyan" /> Nyan</label>
-            </div>
-            <div class="col-xs-6 col-s-3 col-md-3 col-l-3 checkbox">
-              <label><input type="checkbox" data-argName="fruitPlum" value="-plum" />Plum</label><br />
-              <label><input type="checkbox" data-argName="fruitKiwi" value="-kiwi" />Kiwi</label><br />
-              <label><input type="checkbox" data-argName="fruitPear" value="-pear" />Pear</label>
-            </div>
-            <div class="col-xs-6 col-s-3 col-md-3 col-l-3">
-              <div class="btn-group">
-                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Vegetables <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><input type="radio" name="dropdown" data-argName="vegPotato" id="potato" value="--potato" /><label for="potato">Potato</label></li>
-                  <li><input type="radio" name="dropdown" data-argName="vegCarrot" id="carrot" value="--carrot" /><label for="carrot">Carrot</label></li>
-                  <li><input type="radio" name="dropdown" data-argName="vegCelery" id="celery" value="--celery" /><label for="celery">Celery</label></li>
-                  <li><input type="radio" name="dropdown" data-argName="vegGinger" id="ginger" value="--ginger" /><label for="ginger">Ginger</label></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xs-6 col-s-3 col-md-3 col-l-3">
-              <select data-argName="dogSounds" class="form-control" required="required">
-                <option value="">Dog Sounds</option>
-                <option value="woof">Woof</option>
-                <option value="bark">Bark</option>
-                <option value="ruff">Ruff</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label>Browse for Folder:</label>
-              <input type="file" nwdirectory="nwdirectory" data-argName="folderPicker" />
-            </div>
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label>Color Picker:</label>
-              <input type="color" data-argName="colorful" value="#000000" />
-            </div>
-          </div>
 
-          <div class="row">
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="speed">Speed vs Quality:</label><br />
-              <table>
-                <tr>
-                  <td class="text-center"><span>High Quality (Slower)</span></td>
-                  <td><input class="slider" type="text" id="speed" data-argName="speedVsQuality" data-slider-id="speedSlider" data-slider-min="1" data-slider-max="11" data-slider-step="1" data-slider-value="6" /></td>
-                  <td class="text-center"><span>Low Quality (Faster)</span></td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="speed">Quality:</label><br />
-              <table>
-                <tr>
-                  <td class="text-center"><span>Minimum</span></td>
-                  <td><input class="slider" type="text" id="quality" data-argName="quality" data-slider-id="qualitySlider" data-slider-min="0" data-slider-max="100" data-slider-step="25" data-slider-value="[0,100]" /></td>
-                  <td class="text-center"><span>Maximum</span></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-
-          <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
-              <label for="message">Message:</label>
-              <textarea id="message" class="form-control" required="required" data-argName="userMessage"></textarea>
+              <p><b>You can use this box to run your advanced command line:</b></p>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+
+              <pre class="returnedCmdText">Returned text will be displayed here.</pre>
+
+              <div class="input-group">
+                <span class="input-group-addon">mm3d</span>
+                <input type="text" class="form-control" aria-label="Your command line" data-argName="commandline">
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                  <button type="submit" class="sendCmdArgs btn btn-default">Run MICMAC</button>
+                </div>
+              </div>
+
             </div>
+
           </div>
 
-        </form>
+        <hr />
+
 
 
       </section>

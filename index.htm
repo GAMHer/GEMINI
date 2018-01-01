@@ -48,7 +48,15 @@
       /////////////////////////////////////////////////////////////////
     -->
 
+    <cmd executable="Tapioca">
+      <arg>((strategy))</arg>
+      <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
+      <arg>((sizelowres))</arg>
+      <arg>((sizehighres))</arg>
+    </cmd>
 
+    <cmd executable="vtapioca">
+    </cmd>
 
     <cmd executable="mm3d">
       <arg>((commandline))</arg>
@@ -178,7 +186,67 @@
 
 
 
+        <div class="ezdz form-group jumbotron text-center well h3" title="Click to browse for your file.">
+          <span class="imageContainer"></span>
+          <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your images here.</label>
+          <input data-argName="fileToProcess" required="required" type="file" multiple />
+        </div>
+
+
+
         <hr />
+
+
+
+        <form id="Tapioca" role="form-inline">
+
+          <p><b>Allignment:</b></p>
+
+          <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
+
+          <div class="row">
+
+            <div class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
+              <select data-argName="strategy" class="form-control" required="required">
+                <option value="">Strategy</option>
+                <option value="All">All</option>
+                <option value="MulScale">Mulscale</option>
+              </select>
+            </div>
+
+            <div class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
+              <span class="input-group-addon">
+                <input type="text" class="form-control" data-argName="sizelowres" aria-label="winewhite" />
+              </span>
+              <span class="input-group-addon">
+                <input type="text" class="form-control" data-argName="sizehighres" required="required" aria-label="winewhite" />
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+              <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+            </div>
+          </div>
+
+        </form>
+
+        <form id="vtapioca" role="form-inline">
+
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+              <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+            </div>
+          </div>
+
+        </form>
+
+
+
+        <hr />
+
+
 
         <form id="mm3d" role="form-inline">
 
@@ -190,7 +258,7 @@
 
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
 
-              <pre class="returnedCmdText">Returned text will be displayed here.</pre>
+              <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
 
               <div class="input-group">
                 <span class="input-group-addon">mm3d</span>
@@ -199,13 +267,15 @@
 
               <div class="row">
                 <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-                  <button type="submit" class="sendCmdArgs btn btn-default">Run MICMAC</button>
+                  <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
                 </div>
               </div>
 
             </div>
 
           </div>
+
+
 
         <hr />
 

@@ -82,6 +82,12 @@ GEMINI is a [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) for [M
 
 * * *
 
+### How to use GEMINI
+
+* Files to process must be in a path without spaces or special characters
+
+* * *
+
 ### Known Issues
 
 * Starting the interface you may encounter an `ERROR:browser_main_loop.cc(170)`. This won't affect the correct functioning of the software.

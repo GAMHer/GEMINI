@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
     <!-- Change this next line from cerulean to whatever swatch you pick. -->
-    <link rel="stylesheet" href="_style/ven.bootswatch/superhero.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ven.bootswatch/spacelab.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -68,6 +68,14 @@
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
       <arg>InCal=((InCal))</arg>
       <arg>Out=((OutCal))</arg>
+    </cmd>
+
+    <cmd executable="vtapas">
+    </cmd>
+
+    <cmd executable="AperiCloud">
+      <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
+      <arg>((folderPicker.folderName))</arg>
     </cmd>
 
     <cmd executable="vtapas">
@@ -270,8 +278,8 @@
               <a href="javascript:void(0)" onclick="openCommand(event, 'Tapas');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tapas</div>
               </a>
-              <a href="javascript:void(0)" onclick="openCommand(event, 'Apericloud');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Apericloud</div>
+              <a href="javascript:void(0)" onclick="openCommand(event, 'AperiCloud');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">AperiCloud</div>
               </a>
             </div>
 
@@ -388,13 +396,48 @@
 
               </div>
 
+
+            <div id="AperiCloud" class="w3-container command" style="display:none">
+              <h2>AperiCloud</h2>
+              <form id="AperiCloud" role="form-inline">
+
+                <p><b>Generating a visualization of camera position and sparse 3D model:</b></p>
+
+                <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
+
+                <div class="row">
+                  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                    <label>Browse for Orientation:</label>
+                    <input type="file" nwdirectory="nwdirectory" data-argName="folderPicker" />
+                  </div>
+                </div>
+
+                        <div class="row">
+                          <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                            <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+                          </div>
+                        </div>
+
+                      </form>
+
+
+
+                      <form id="vtapas" role="form-inline">
+
+                        <div class="row">
+                          <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                            <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+                          </div>
+                        </div>
+
+                      </form>
+
+                    </div>
+
+
             </div>
 
 
-
-            <div id="Apericloud" class="w3-container command" style="display:none">
-              <h2>Apericloud</h2>
-            </div>
 
 
 

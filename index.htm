@@ -2,13 +2,17 @@
 <html>
   <head>
 
+    <!-- Tabs in a Grid https://www.w3schools.com/w3css/w3css_tabulators.asp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <!-- Automatically updated by your package.json file. -->
     <title class="applicationTitle">Your Application Name</title>
 
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
     <!-- Change this next line from cerulean to whatever swatch you pick. -->
-    <link rel="stylesheet" href="_style/ven.bootswatch/spacelab.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ven.bootswatch/superhero.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -49,18 +53,28 @@
     -->
 
     <cmd executable="Tapioca">
-      <arg>((strategy))</arg>
+      <arg>((Mode))</arg>
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
-      <arg>((sizeall))</arg>
-      <arg>((sizelowres))</arg>
-      <arg>((sizehighres))</arg>
+      <arg>((SizeAll))</arg>
+      <arg>((SizeLowRes))</arg>
+      <arg>((SizeHighRes))</arg>
     </cmd>
 
     <cmd executable="vtapioca">
     </cmd>
 
+    <cmd executable="Tapas">
+      <arg>((ModeCalib))</arg>
+      <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
+      <arg>InCal=((InCal))</arg>
+      <arg>Out=((OutCal))</arg>
+    </cmd>
+
+    <cmd executable="vtapas">
+    </cmd>
+
     <cmd executable="mm3d">
-      <arg>((commandline))</arg>
+      <arg>((CommandLine))</arg>
     </cmd>
 
 
@@ -199,9 +213,27 @@
 
 
 
+        <script>
+        function openCommand(evt, commandName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("command");
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+             tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+          }
+          document.getElementById(commandName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-border-red";
+        }
+        </script>
+
+
+
           <script type="text/javascript">
           function toggleElement(sel) {
-              intrest_div = [document.getElementById('All'), document.getElementById('MulScale')];
+              intrest_div = [document.getElementById('All'), document.getElementById('MulScale'), document.getElementById('AutoCal')];
               var selected = -1;
               for (i = 0; i < intrest_div.length; i++)
               {
@@ -228,34 +260,54 @@
 
           </script>
 
+          <div class="w3-container">
+            <h2>Photogrammetric Workflow</h2>
+
+            <div class="w3-row">
+              <a href="javascript:void(0)" onclick="openCommand(event, 'Tapioca');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tapioca</div>
+              </a>
+              <a href="javascript:void(0)" onclick="openCommand(event, 'Tapas');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tapas</div>
+              </a>
+              <a href="javascript:void(0)" onclick="openCommand(event, 'Apericloud');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Apericloud</div>
+              </a>
+            </div>
+
+
+
+            <div id="Tapioca" class="w3-container command" style="display:none">
+              <h2>Tapioca</h2>
+
           <form id="Tapioca" role="form-inline">
 
-            <p><b>Allignment:</b></p>
+            <p><b>Computing Tie Points:</b></p>
 
             <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
 
                     <div class="row">
 
                       <div class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
-                        <select data-argName="strategy" onchange="toggleElement(this)" class="form-control" required="required">
+                        <select data-argName="Mode" onchange="toggleElement(this)" class="form-control" required="required">
                           <option value="">Strategy</option>
                           <option value="All">All</option>
-                          <option value="MulScale">MulScale</option>
+                          <option value="MulScale">Multi Scale Approach</option>
                         </select>
                       </div>
 
                       <div style="display: none;" id="All" class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
                         <span class="input-group-addon">
-                          <input type="text" class="form-control" data-argName="sizeall" aria-label="winewhite" />
+                          <input type="text" class="form-control" data-argName="SizeAll" aria-label="winewhite" placeholder="SizeAll"/>
                         </span>
                       </div>
 
                     <div style="display: none;" id="MulScale" class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
                       <span class="input-group-addon">
-                      <input type="text" class="form-control" data-argName="sizelowres" aria-label="winewhite" />
+                      <input type="text" class="form-control" data-argName="SizeLowRes" aria-label="winewhite" placeholder="SizeLowRes"/>
                       </span>
                       <span class="input-group-addon">
-                       <input type="text" class="form-control" data-argName="sizehighres" aria-label="winewhite" />
+                       <input type="text" class="form-control" data-argName="SizeHighRes" aria-label="winewhite" placeholder="SizeHighRes"/>
                       </span>
                     </div>
                   </div>
@@ -278,6 +330,72 @@
 
         </form>
 
+      </div>
+
+
+
+        <div id="Tapas" class="w3-container command" style="display:none">
+          <h2>Tapas</h2>
+
+        <form id="Tapas" role="form-inline">
+
+          <p><b>Simple relative orientation and calibration:</b></p>
+
+          <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
+
+                  <div class="row">
+
+                    <div class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
+                      <select data-argName="ModeCalib" onchange="toggleElement(this)" class="form-control" required="required">
+                        <option value="">Distorsion Model</option>
+                        <option value="RadialExtended">RadialExtended</option>
+                        <option value="RadialBasic">RadialBasic</option>
+                        <option value="Fraser">Fraser</option>
+                        <option value="FraserBasic">FraserBasic</option>
+                        <option value="FishEyeEqui">FishEyeEqui</option>
+                        <option value="HemiEqui">HemiEqui</option>
+                        <option value="AutoCal">AutoCall</option>
+                      </select>
+                    </div>
+
+                  <div style="display: none;" id="AutoCal" class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
+                    <span class="input-group-addon">
+                    <input type="text" class="form-control" data-argName="InCal" aria-label="winewhite" placeholder="InCal"/>
+                    </span>
+                    <span class="input-group-addon">
+                     <input type="text" class="form-control" data-argName="OutCal" aria-label="winewhite" placeholder="OutCal"/>
+                    </span>
+                  </div>
+                </div>
+
+                  <div class="row">
+                    <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                      <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+                    </div>
+                  </div>
+
+                </form>
+
+                <form id="vtapas" role="form-inline">
+
+                  <div class="row">
+                    <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                      <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
+
+
+
+            <div id="Apericloud" class="w3-container command" style="display:none">
+              <h2>Apericloud</h2>
+            </div>
+
 
 
         <hr />
@@ -298,7 +416,7 @@
 
               <div class="input-group">
                 <span class="input-group-addon">mm3d</span>
-                <input type="text" class="form-control" aria-label="Your command line" data-argName="commandline">
+                <input type="text" class="form-control" aria-label="Your command line" data-argName="CommandLine">
               </div>
 
               <div class="row">

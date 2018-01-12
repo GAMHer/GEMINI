@@ -16,7 +16,7 @@ Download GEMINI to use it for your MICMAC dataset:
 
 * * *
 
-### Installation
+### Installation on Ubuntu
 
 **If you don't have Node.JS installed or you need to update it (recommended):**
 
@@ -73,6 +73,20 @@ You''ll only ever need to run this once.
 Now that you’ve got Node installed, from now on you’ll be able to just run the following command launching a terminal inside the GEMINI main folder to start the interface :
 
    `npm start`
+   
+### Installation on Windows
+
+**If you don't have Node.JS installed:**
+
+1. Download NW.js
+
+2. Download GEMINI
+
+3. Unzip both, put the contents of the UGUI folder into the NW.js folder (so package.json is next to nw.exe)
+
+**Run GEMINI Interface:**
+
+Run nw.exe
 
 * * *
 

@@ -74,15 +74,17 @@ Now that you’ve got Node installed, from now on you’ll be able to just run t
 
    `npm start`
    
+* * *
+   
 ### Installation on Windows
 
 **If you don't have Node.JS installed:**
 
-1. Download NW.js
+1. Download [NW.js](https://nwjs.io/)
 
-2. Download GEMINI
+2. Download [GEMINI](https://github.com/GAMHer/GEMINI/blob/master/README.md#download)
 
-3. Unzip both, put the contents of the UGUI folder into the NW.js folder (so package.json is next to nw.exe)
+3. Unzip both, put the contents of the GEMINI folder into the NW.js folder (so package.json is next to nw.exe)
 
 **Run GEMINI Interface:**
 

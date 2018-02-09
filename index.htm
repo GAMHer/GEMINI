@@ -52,9 +52,13 @@
       /////////////////////////////////////////////////////////////////
     -->
 
+    <cmd executable="ImgUpload">
+    </cmd>
+
     <cmd executable="Tapioca">
       <arg>((Mode))</arg>
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
+      <arg>((SizeAllFull))</arg>
       <arg>((SizeAll))</arg>
       <arg>((SizeLowRes))</arg>
       <arg>((SizeHighRes))</arg>
@@ -207,14 +211,14 @@
 
       <section>
 
-
+        <form id="ImgUpload" role="form-inline">
 
         <div class="ezdz form-group jumbotron text-center well h3" title="Click to browse for your file.">
           <span class="imageContainer"></span>
           <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your images here.</label>
           <input data-argName="fileToProcess" required="required" type="file" multiple />
         </div>
-
+      </form>
 
 
         <hr />
@@ -306,8 +310,16 @@
 
                       <div style="display: none;" id="All" class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">
                         <span class="input-group-addon">
-                          <input type="text" class="form-control" data-argName="SizeAll" aria-label="winewhite" placeholder="SizeAll"/>
+                          MAX
+                          <input type="checkbox" data-argName="SizeAllFull" value="-1" aria-label="winewhite" />
                         </span>
+                          <span class="input-group-addon">
+                        <input type="text" class="form-control" data-argName="SizeAll" aria-label="winewhite" placeholder="Or insert width"/>
+                        </span>
+
+                        <p><i>The simplest case of use of Tapioca is when you only want to compute tie points between all the pairs
+of a set of images. Use the box above for specify the desired width for shrinking the images. For example, if the initial image has a width of 5000, and the value is 2000, it will specify a scaling of 0.4. If the checkbox MAX is checked, it means no shrinking.</i></p>
+
                       </div>
 
                     <div style="display: none;" id="MulScale" class="col-xs-6 col-s-3 col-md-3 col-l-3 radio">

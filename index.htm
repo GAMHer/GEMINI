@@ -72,6 +72,7 @@
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
       <arg>InCal=((InCal))</arg>
       <arg>Out=((OutCal))</arg>
+      <arg>&& gedit ((fileToProcess.path))/Ori-((ModeCalib))/AutoCal*.xml</arg>
     </cmd>
 
     <cmd executable="vtapas">
@@ -79,10 +80,27 @@
 
     <cmd executable="AperiCloud">
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
-      <arg>((folderPicker.folderName))</arg>
+      <arg>((AperiCalib)) && meshlab ((fileToProcess.path))/AperiCloud_((AperiCalib)).ply</arg>
+      <arg>((AperiCalibPersonalized)) && meshlab ((fileToProcess.path))/AperiCloud_((AperiCalibPersonalized)).ply</arg>
     </cmd>
 
-    <cmd executable="vtapas">
+    <cmd executable="vAperiCloud">
+    </cmd>
+
+    <cmd executable="Campari">
+      <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
+      <arg>((folderPicker.folderName))</arg>
+      <arg>((QualityChecksFolder))</arg>
+      <arg>ExpImRes=[1000,1000,1000]</arg>
+      <arg>ExportSensib=true</arg>
+      <arg>AllFree=1</arg>
+      <arg>((Quality1)) gedit ((fileToProcess.path))/((folderPicker.folderName))/AutoCal*.xml</arg>
+      <arg>((Quality2)) meshlab ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/CloudResidual.ply ; meshlab ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/CloudResidual_Leg.ply</arg>
+      <arg>((Quality3)) mm3d Vino ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/ResAbs-Cam*.tif</arg>
+      <arg>((Quality4)) gedit ((fileToProcess.path))/Ori-((QualityChecksFolder))/Sensib*.xml</arg>
+    </cmd>
+
+    <cmd executable="vCampari">
     </cmd>
 
     <cmd executable="mm3d">
@@ -277,13 +295,13 @@
 
             <div class="w3-row">
               <a href="javascript:void(0)" onclick="openCommand(event, 'Tapioca');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tapioca</div>
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tie-points extraction</div>
               </a>
               <a href="javascript:void(0)" onclick="openCommand(event, 'Tapas');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tapas</div>
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Calibration and orientation</div>
               </a>
-              <a href="javascript:void(0)" onclick="openCommand(event, 'AperiCloud');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">AperiCloud</div>
+              <a href="javascript:void(0)" onclick="openCommand(event, 'Campari');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Quality evaluation</div>
               </a>
             </div>
 
@@ -406,45 +424,127 @@ of a set of images. Use the box above for specify the desired width for shrinkin
 
                 </form>
 
+                <h2>AperiCloud</h2>
+                <form id="AperiCloud" role="form-inline">
+
+                  <p><b>Generating a visualization of camera position and sparse 3D model:</b></p>
+
+                  <div class="row">
+
+                    <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                      <label>Browse for calibration:</label>
+                      <select data-argName="AperiCalib" class="form-control" />
+                        <option value="">Distorsion Model</option>
+                        <option value="RadialExtended">RadialExtended</option>
+                        <option value="RadialBasic">RadialBasic</option>
+                        <option value="Fraser">Fraser</option>
+                        <option value="FraserBasic">FraserBasic</option>
+                        <option value="FishEyeEqui">FishEyeEqui</option>
+                        <option value="HemiEqui">HemiEqui</option>
+                      </select>
+                    </div>
+
+                    <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                      <label>Or type orientation name:</label>
+                      <input type="text" class="form-control" data-argName="AperiCalibPersonalized" aria-label="winewhite" placeholder="Skip Ori-"/>
+                    </div>
+
+                  </div>
+
+                          <div class="row">
+                            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                              <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+                            </div>
+                          </div>
+
+                        </form>
+
+                        <form id="vAperiCloud" role="form-inline">
+
+                          <div class="row">
+                            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                              <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+                            </div>
+                          </div>
+
+                        </form>
+
               </div>
 
 
-            <div id="AperiCloud" class="w3-container command" style="display:none">
-              <h2>AperiCloud</h2>
-              <form id="AperiCloud" role="form-inline">
+              <div id="Campari" class="w3-container command" style="display:none">
+                <h2>Campari</h2>
+                <form id="Campari" role="form-inline">
 
-                <p><b>Generating a visualization of camera position and sparse 3D model:</b></p>
+                  <p><b>Tool for compensation of heterogeneous measures:</b></p>
 
-                <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
+                  <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
 
-                <div class="row">
-                  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                    <label>Browse for Orientation:</label>
-                    <input type="file" nwdirectory="nwdirectory" data-argName="folderPicker" />
-                  </div>
+
+
+
+
+                  <div class="row">
+                    <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                      <label>Browse for Orientation:</label>
+                      <input type="file" nwdirectory="nwdirectory" data-argName="folderPicker" />
+                    </div>
+
+                <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                  <label>Name of the quality checks folder:</label>
+                  <input type="text" class="form-control" data-argName="QualityChecksFolder" aria-label="winewhite" placeholder="Type a name"/>
                 </div>
 
-                        <div class="row">
-                          <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-                            <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+              </div>
+
+
+
+
+<br>
+                    <label>Select outputs to display:</label>
+                    <span class="input-group-addon">
+                      Calibration certificate
+                      <input type="checkbox" data-argName="Quality1" value="&&" aria-label="winewhite" />
+                    </span>
+                    <span class="input-group-addon">
+                      Tie points residuals
+                      <input type="checkbox" data-argName="Quality2" value="&&" aria-label="winewhite" />
+                    </span>
+                    <br>
+                    <span class="input-group-addon">
+                      Sensor plane's residuals
+                      <input type="checkbox" data-argName="Quality3" value="&&" aria-label="winewhite" />
+                    </span>
+                    <span class="input-group-addon">
+                      Sensibility Analysis
+                      <input type="checkbox" data-argName="Quality4" value="&&" aria-label="winewhite" />
+                    </span>
+
+
+
+                          <div class="row">
+                            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                              <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+                            </div>
                           </div>
-                        </div>
-
-                      </form>
 
 
 
-                      <form id="vtapas" role="form-inline">
+                        </form>
 
-                        <div class="row">
-                          <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-                            <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+
+
+                        <form id="vCampari" role="form-inline">
+
+                          <div class="row">
+                            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                              <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+                            </div>
                           </div>
-                        </div>
 
-                      </form>
+                        </form>
 
-                    </div>
+                      </div>
 
 
             </div>

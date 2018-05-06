@@ -98,9 +98,17 @@
       <arg>((Quality2)) meshlab ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/CloudResidual_Leg.ply ; meshlab ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/CloudResidual.ply</arg>
       <arg>((Quality3)) mm3d Vino ((fileToProcess.path))/Ori-((QualityChecksFolder))/ImResidu/ResAbs-Cam*.tif</arg>
       <arg>((Quality4)) gedit ((fileToProcess.path))/Ori-((QualityChecksFolder))/Sensib*.xml</arg>
+      <arg>((Quality5)) mm3d Vino ((fileToProcess.path))/Ori-((QualityChecksFolder))/Sensib-MatriceCorrel.tif</arg>
+      <arg>((Quality6)) cd ((fileToProcess.path)) && mm3d TestLib ConvNewFH ".*((fileToProcess.ext))" PMul Bin=0 && cd - && gedit ((fileToProcess.path))/Homol/*PMul.txt</arg>
     </cmd>
 
     <cmd executable="vCampari">
+    </cmd>
+
+    <cmd executable="Martini">
+    </cmd>
+
+    <cmd executable="vMartini">
     </cmd>
 
     <cmd executable="mm3d">
@@ -298,10 +306,13 @@
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Tie-points extraction</div>
               </a>
               <a href="javascript:void(0)" onclick="openCommand(event, 'Tapas');">
-                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Calibration and orientation</div>
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Calibration & orientation</div>
               </a>
               <a href="javascript:void(0)" onclick="openCommand(event, 'Campari');">
                 <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Quality evaluation</div>
+              </a>
+              <a href="javascript:void(0)" onclick="openCommand(event, 'Martini');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Filtering & homogenization</div>
               </a>
             </div>
 
@@ -510,15 +521,24 @@ of a set of images. Use the box above for specify the desired width for shrinkin
                       Tie points residuals
                       <input type="checkbox" data-argName="Quality2" value="&&" aria-label="winewhite" />
                     </span>
-                    <br>
                     <span class="input-group-addon">
                       Sensor plane's residuals
                       <input type="checkbox" data-argName="Quality3" value="&&" aria-label="winewhite" />
                     </span>
+                    <br>
                     <span class="input-group-addon">
                       Sensibility Analysis
                       <input type="checkbox" data-argName="Quality4" value="&&" aria-label="winewhite" />
                     </span>
+                    <span class="input-group-addon">
+                      Correlation Matrix
+                      <input type="checkbox" data-argName="Quality5" value="&&" aria-label="winewhite" />
+                    </span>
+                    <span class="input-group-addon">
+                      Points robustness
+                      <input type="checkbox" data-argName="Quality6" value="&&" aria-label="winewhite" />
+                    </span>
+
 
 
 
@@ -545,6 +565,45 @@ of a set of images. Use the box above for specify the desired width for shrinkin
                         </form>
 
                       </div>
+
+
+
+
+                      <div id="Martini" class="w3-container command" style="display:none">
+                        <h2>Ratafia</h2>
+                        <form id="Martini" role="form-inline">
+
+                          <p><b>Tool for tie-points homogenization:</b></p>
+
+                          <pre class="returnedCmdText">Returned text from MICMAC will be displayed here.</pre>
+
+                                  <div class="row">
+                                    <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                                      <button type="submit" class="sendCmdArgs btn btn-default">Run!</button>
+                                    </div>
+                                  </div>
+
+
+
+                                </form>
+
+
+
+                                <form id="vMartini" role="form-inline">
+
+                                  <div class="row">
+                                    <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                                      <button type="submit" class="sendCmdArgs btn btn-default">Advanced</button>
+                                    </div>
+                                  </div>
+
+                                </form>
+
+                              </div>
+
+
+
+
 
 
             </div>

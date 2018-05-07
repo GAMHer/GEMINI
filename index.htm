@@ -91,6 +91,8 @@
       <arg>"((fileToProcess.path)).*((fileToProcess.ext))"</arg>
       <arg>((folderPicker.folderName))</arg>
       <arg>((QualityChecksFolder))</arg>
+      <arg>SigmaTieP=((SigmaTieP))</arg>
+      <arg>FactElimTieP=((FactElimTieP))</arg>
       <arg>ExpImRes=[1000,1000,1000]</arg>
       <arg>ExportSensib=true</arg>
       <arg>AllFree=1</arg>
@@ -502,13 +504,63 @@ of a set of images. Use the box above for specify the desired width for shrinkin
                     </div>
 
                 <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                  <label>Name of the quality checks folder:</label>
+                  <label>Name of the destination folder:</label>
                   <input type="text" class="form-control" data-argName="QualityChecksFolder" aria-label="winewhite" placeholder="Type a name"/>
                 </div>
 
               </div>
 
 
+<br />
+
+
+                  <label for="speed">SigmaTieP & FactElimTieP:</label><br />
+                  <p><i>These two options make it possible to weight the observations of the points of connection within the same category of observation: they make it possible to give more weight to the homologues points which have a weak residues (if the models of aerotriangulation is correct, these are the homologous points with high quality).</i></p>
+
+
+
+
+
+
+<div class="row">
+
+  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+    <label for="speed">SigmaTieP:</label><br />
+    <p><i>Give more weight to the "quality" homologous points by decreasing the SigmaTieP (see documentation).</i></p>
+
+  </div>
+
+  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+    <label for="speed">FactElimTieP:</label><br />
+    <p><i>Set the threshold (in terms of residues, unit = pixels) from which a connection point is excluded from the computation (with the hypothesis that if the points have high residues, they have poor quality).</i></p>
+
+  </div>
+
+</div>
+
+
+  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+    <table>
+      <tr>
+        <td class="text-center"><span>1</span></td>
+        <td><input class="slider" type="text" id="sigma" data-argName="SigmaTieP" data-slider-id="sigma" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="1" /></td>
+        <td class="text-center"><span>10</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+    <table>
+      <tr>
+        <td class="text-center"><span>1</span></td>
+        <td><input class="slider" type="text" id="fact" data-argName="FactElimTieP" data-slider-id="fact" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="5" /></td>
+        <td class="text-center"><span>10</span></td>
+      </tr>
+    </table>
+  </div>
+
+
+<br />
 
 
 <br>

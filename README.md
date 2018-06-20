@@ -12,7 +12,7 @@ Developed by [Alessio Calantropio](https://www.swas.polito.it/rubrica/scheda_per
 
 Download GEMINI to use it for your MICMAC dataset:
 
-* [Last version](https://github.com/GAMHer/GEMINI/archive/master.zip)
+* [Last version](https://github.com/GAMHer/GEMINI/archive/GEMINI-Tabs.zip)
 
 * * *
 

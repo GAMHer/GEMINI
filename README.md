@@ -58,7 +58,7 @@ Download GEMINI to use it for your MICMAC dataset:
 
 **If you have Node.JS installed and updated:**
 
-1. Download latest release of GEMINI from the above [download link](https://github.com/GAMHer/GEMINI/blob/master/README.md#download)
+1. Download latest release of GEMINI from the above [download link](https://github.com/GAMHer/GEMINI/blob/GEMINI-Tabs/README.md#download)
 
 2. Extract the GEMINI folder from the zip file
 
@@ -82,7 +82,7 @@ Now that you’ve got Node installed, from now on you’ll be able to just run t
 
 1. Download [NW.js](https://nwjs.io/)
 
-2. Download [GEMINI](https://github.com/GAMHer/GEMINI/blob/master/README.md#download)
+2. Download [GEMINI](https://github.com/GAMHer/GEMINI/blob/GEMINI-Tabs/README.md#download)
 
 3. Unzip both, put the contents of the GEMINI folder into the NW.js folder (so package.json is next to nw.exe)
 
